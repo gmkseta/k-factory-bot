@@ -2,12 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.10"
-    id("maven-publish")
+    id("com.gradle.plugin-publish") version "1.1.0"
 
 }
 
 group = "kr.gmkseta"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -32,6 +32,17 @@ publishing {
             artifactId = "k-factory-bot"
             groupId = "kr.gmkseta"
             version = "0.0.1"
+        }
+    }
+}
+
+gradlePlugin{
+    plugins {
+        create("kFactoryBot") {
+            id = "kr.gmkseta.k-factory-bot"
+            implementationClass = "kr.gmkseta.kfactorybot.KFactoryBotPlugin"
+            displayName = "KFactoryBot"
+            description = "Kotlin Factory Bot"
         }
     }
 }
