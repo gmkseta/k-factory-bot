@@ -1,3 +1,0 @@
-package kr.gmkseta.kfactorybot
-
-

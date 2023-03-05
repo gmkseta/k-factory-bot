@@ -32,17 +32,29 @@ publishing {
             artifactId = "k-factory-bot"
             groupId = "kr.gmkseta"
             version = "0.0.1"
+            sourceSets["main"].kotlin.srcDirs.forEach {
+                artifact(it) {
+                    classifier = "sources"
+                }
+            }
         }
     }
 }
 
 gradlePlugin{
+
     plugins {
-        create("kFactoryBot") {
+        create("FactoryBot") {
             id = "kr.gmkseta.k-factory-bot"
-            implementationClass = "kr.gmkseta.kfactorybot.KFactoryBotPlugin"
+            implementationClass = "kr.gmkseta.kfactorybot.factorybot.FactoryBot"
             displayName = "KFactoryBot"
             description = "Kotlin Factory Bot"
         }
     }
+}
+
+pluginBundle {
+    website = "https://github.com/gmkseta/k-factory-bot"
+    vcsUrl = "https://github.com/gmkseta/k-factory-bot"
+    tags = listOf("")
 }

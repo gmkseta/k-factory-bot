@@ -1,16 +1,16 @@
-package kr.gmkseta.kfactorybot.factory
+package kr.gmkseta.kfactorybot.factorybot
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-internal class FactoryTest{
+internal class FactoryBotTest{
 
     internal data class User(
         val name: String,
         val email: String
     )
 
-    private val userFactory = Factory.define(User::class) {
+    private val userFactory = FactoryBot.define(User::class) {
         add("default") {
             User(
                 name = "Alice",

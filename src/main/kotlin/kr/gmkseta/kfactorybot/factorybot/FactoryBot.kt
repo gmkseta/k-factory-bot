@@ -1,9 +1,9 @@
-package kr.gmkseta.kfactorybot.factory
+package kr.gmkseta.kfactorybot.factorybot
 
 import kr.gmkseta.kfactorybot.builder.Builder
 import kotlin.reflect.KClass
 
-object Factory {
+object FactoryBot {
     private val builders = mutableMapOf<KClass<*>, Builder<*>>()
 
     fun <T: Any>define(kClass: KClass<T>, lambda: Builder<T>.() -> Unit) : Builder<T> {
