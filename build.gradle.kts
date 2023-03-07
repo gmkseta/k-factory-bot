@@ -6,7 +6,7 @@ plugins {
 
 }
 
-group = "kr.gmkseta"
+group = "io.github.gmkseta"
 version = "0.0.1"
 
 repositories {
@@ -30,7 +30,7 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             artifactId = "k-factory-bot"
-            groupId = "kr.gmkseta"
+            groupId = "io.github.gmkseta"
             version = "0.0.1"
             sourceSets["main"].kotlin.srcDirs.forEach {
                 artifact(it) {
@@ -45,8 +45,8 @@ gradlePlugin{
 
     plugins {
         create("FactoryBot") {
-            id = "kr.gmkseta.k-factory-bot"
-            implementationClass = "kr.gmkseta.kfactorybot.factorybot.FactoryBot"
+            id = "io.github.gmkseta.k-factory-bot"
+            implementationClass = "io.github.gmkseta.kfactorybot.factorybot.FactoryBot"
             displayName = "KFactoryBot"
             description = "Kotlin Factory Bot"
         }

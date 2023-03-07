@@ -1,6 +1,6 @@
-package kr.gmkseta.kfactorybot.factorybot
+package io.github.gmkseta.kfactorybot.factorybot
 
-import kr.gmkseta.kfactorybot.builder.Builder
+import io.github.gmkseta.kfactorybot.builder.Builder
 import kotlin.reflect.KClass
 
 object FactoryBot {

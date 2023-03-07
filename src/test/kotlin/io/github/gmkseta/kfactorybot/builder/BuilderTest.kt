@@ -1,4 +1,4 @@
-package kr.gmkseta.kfactorybot.builder
+package io.github.gmkseta.kfactorybot.builder
 
 import org.junit.jupiter.api.Test
 

@@ -15,7 +15,7 @@ Add the following dependency to your Gradle file:
 
 ```groovy
 dependencies {
-    implementation 'kr.gmkseta:kfactorybot:1.0.0'
+    implementation 'io.github.gmkseta:kfactorybot:0.0.1'
 }
 ```
 
