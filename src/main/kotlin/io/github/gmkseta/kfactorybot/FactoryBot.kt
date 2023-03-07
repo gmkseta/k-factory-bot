@@ -1,4 +1,4 @@
-package io.github.gmkseta.kfactorybot.factorybot
+package io.github.gmkseta.kfactorybot
 
 import io.github.gmkseta.kfactorybot.builder.Builder
 import kotlin.reflect.KClass

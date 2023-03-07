@@ -28,17 +28,14 @@ tasks.withType<KotlinCompile> {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            from(components["java"])
+            from(components["kotlin"])
             artifactId = "k-factory-bot"
             groupId = "io.github.gmkseta"
             version = "0.0.1"
-            sourceSets["main"].kotlin.srcDirs.forEach {
-                artifact(it) {
-                    classifier = "sources"
-                }
-            }
         }
     }
+
+
 }
 
 gradlePlugin{
@@ -46,7 +43,7 @@ gradlePlugin{
     plugins {
         create("FactoryBot") {
             id = "io.github.gmkseta.k-factory-bot"
-            implementationClass = "io.github.gmkseta.kfactorybot.factorybot.FactoryBot"
+            implementationClass = "io.github.gmkseta.kfactorybot.FactoryBot"
             displayName = "KFactoryBot"
             description = "Kotlin Factory Bot"
         }
@@ -56,5 +53,5 @@ gradlePlugin{
 pluginBundle {
     website = "https://github.com/gmkseta/k-factory-bot"
     vcsUrl = "https://github.com/gmkseta/k-factory-bot"
-    tags = listOf("")
+    tags = listOf()
 }
