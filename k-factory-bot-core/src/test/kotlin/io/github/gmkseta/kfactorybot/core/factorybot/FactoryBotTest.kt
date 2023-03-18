@@ -1,5 +1,6 @@
-package io.github.gmkseta.kfactorybot.factorybot
+package io.github.gmkseta.kfactorybot.core.factorybot
 
+import io.github.gmkseta.kfactorybot.core.FactoryBot
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 

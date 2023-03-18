@@ -1,49 +1,37 @@
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+
 plugins {
-    kotlin("jvm") version "1.8.10"
+    kotlin("jvm") version "1.8.10" apply false
     id("com.gradle.plugin-publish") version "1.1.0"
-
 }
 
-group = "io.github.gmkseta"
-version = "0.0.1"
+allprojects {
+    group = "io.github.gmkseta"
+    version = "0.0.3"
 
-repositories {
-    mavenCentral()
-}
+    apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "maven-publish")
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["kotlin"])
-            artifactId = "k-factory-bot"
-            groupId = "io.github.gmkseta"
-            version = "0.0.1"
-        }
+    repositories {
+        mavenCentral()
     }
 
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 
+    tasks.test {
+        useJUnitPlatform()
+    }
 }
 
 gradlePlugin{
-
-    plugins {
-        create("FactoryBot") {
+    plugins{
+        create("kFactoryBot"){
             id = "io.github.gmkseta.k-factory-bot"
-            implementationClass = "io.github.gmkseta.kfactorybot.FactoryBot"
+            implementationClass = "io.github.gmkseta.kfactorybot.core.FactoryBot"
             displayName = "KFactoryBot"
             description = "Kotlin Factory Bot"
         }
@@ -53,5 +41,6 @@ gradlePlugin{
 pluginBundle {
     website = "https://github.com/gmkseta/k-factory-bot"
     vcsUrl = "https://github.com/gmkseta/k-factory-bot"
-    tags = listOf()
+    tags = listOf("test")
+    plugins
 }
