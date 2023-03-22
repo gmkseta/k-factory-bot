@@ -6,17 +6,17 @@ import kotlin.reflect.KClass
 
 object FactoryBot {
     private val builders = mutableMapOf<KClass<*>, Builder<*>>()
-    private var dataSaver: FactoryDataSaver<*>? = null
+    private var dataSaver: FactoryDataSaver<Any>? = null
 
     fun <T: Any>define(kClass: KClass<T>, lambda: Builder<T>.() -> Unit) : Builder<T> {
-        val builder = Builder(kClass)
+        val builder = Builder(kClass, dataSaver)
         lambda(builder)
 
         builders[kClass] = builder
         return builder
     }
 
-    fun <T : Any> setDataSaver(saver: FactoryDataSaver<T>) {
+    fun setDataSaver(saver: FactoryDataSaver<Any>) {
         dataSaver = saver
     }
 

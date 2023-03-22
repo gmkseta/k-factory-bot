@@ -1,6 +1,9 @@
 
 plugins {
     kotlin("jvm")
+    id("org.springframework.boot") version "2.7.7"
+    id("io.spring.dependency-management") version "1.1.0"
+    kotlin("plugin.jpa") version "1.8.10"
 }
 
 repositories {
@@ -9,11 +12,17 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation(project(":k-factory-bot-core"))
-    implementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.hibernate:hibernate-core")
+    implementation("javax.persistence:javax.persistence-api")
+    testImplementation("com.h2database:h2:1.4.200")
 }
 
 
+//kotlin.sourceSets {
+//    test {
+//        ou
+//    }
+//}
 
 
 

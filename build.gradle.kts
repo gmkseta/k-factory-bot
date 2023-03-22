@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.10" apply false
     id("com.gradle.plugin-publish") version "1.1.0"
+    id("maven-publish")
 }
 
 allprojects {
@@ -16,6 +17,10 @@ allprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    dependencies {
+        testImplementation(kotlin("test"))
     }
 
     tasks.withType<KotlinCompile> {
